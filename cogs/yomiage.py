@@ -43,7 +43,7 @@ class Hello(Cog):
         if message.author.id == self.bot.user.id:
             return
         if message.channel == self.yomiage_channel:
-            text = message.content
+            text = f'{message.author.name} {message.content}'
             if text and self.voice_client:
                 await self.voicetext_api_client.save_voice(text)
                 self.voice_client.play(discord.FFmpegPCMAudio("a.wav"))
